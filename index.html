@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ශ්‍රී ලංකා පොලිස් උප පොලිස් පරීක්ෂක (සහායක සේවා) බඳවා ගැනීම් තොරතුරු පුවරුව</title>
+  <style>
+    :root {
+      --primary: #1a365d;
+      --secondary: #2b6cb0;
+      --accent: #d69e2e;
+      --bg: #f7fafc;
+      --card-bg: #ffffff;
+      --text: #2d3748;
+      --border: #e2e8f0;
+      --faq-bg: #edf2f7;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 15px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+    .alert-box {
+      background-color: #feebc8;
+      border-left: 5px solid var(--accent);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    .card h2 {
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #edf2f7;
+      padding-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+    .download-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #ebf8ff;
+      border: 1px solid #bee3f8;
+      color: #2b6cb0;
+      padding: 14px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .download-btn:hover {
+      background-color: #bee3f8;
+      color: #2c5282;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .badge {
+      background-color: #3182ce;
+      color: #ffffff;
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+    .location-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #e53e3e;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: all 0.2s ease;
+    }
+    .location-btn:hover {
+      background-color: #c53030;
+      transform: translateY(-2px);
+    }
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #c53030;
+    }
+    .step-box {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+    .step-title {
+      font-weight: bold;
+      color: var(--secondary);
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+    .dress-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    @media (max-width: 600px) {
+      .dress-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .dress-col {
+      background: #f7fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .dress-col h3 {
+      font-size: 1rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    /* FAQ Accordion Styling */
+    details {
+      background-color: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      padding: 12px 16px;
+      transition: all 0.2s ease;
+    }
+    details[open] {
+      background-color: #f7fafc;
+      border-color: #cbd5e0;
+    }
+    summary {
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.98rem;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary::after {
+      content: "➕";
+      font-size: 0.8rem;
+    }
+    details[open] summary::after {
+      content: "➖";
+    }
+    .faq-answer {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      color: #4a5568;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      font-size: 0.85rem;
+      color: #718096;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>ශ්‍රී ලංකා පොලිස් සේවය - සහායක සේවා</h1>
+      <p>ආධුනික උප පොලිස් පරීක්ෂක (SI) සම්මුඛ පරීක්ෂණ සහ බඳවා ගැනීම් තොරතුරු කවුළුව</p>
+    </header>
+
+    <div class="alert-box">
+      📢 <strong>විශේෂ දැනුම්දීමයි:</strong> ඔබගේ නම ලැයිස්තුවේ ඇති දිනය, වේලාව, රැගෙන ආ යුතු ලියකියවිලි, ඇඳුම් පැළඳුම් (Dress Code), ස්ථානය (Location Map) සහ වෛද්‍ය පෝරමය පිළිබඳ සියලු විස්තර පහතින් හොඳින් කියවා බලා සම්පූර්ණ කරගන්න.
+    </div>
+
+    <!-- Location Section -->
+    <div class="card">
+      <h2>📍 සම්මුඛ පරීක්ෂණය පැවැත්වෙන ස්ථානය (Location)</h2>
+      <p style="font-size: 0.95rem; color: #2d3748;">
+        සම්මුඛ පරීක්ෂණය සඳහා නියමිත ස්ථානය වෙත Google Maps හරහා පහසුවෙන් ගමන් මාර්ගය බලාගැනීමට පහත රතු පැහැති බොත්තම ක්ලික් කරන්න:
+      </p>
+      <a href="https://maps.app.goo.gl/8S875WWcQzU1byd97?g_st=ac" target="_blank" class="location-btn">
+        📍 Google Maps මඟින් ස්ථානය විවෘත කරන්න (Open Location)
+      </a>
+      <p style="font-size: 0.85rem; color: #718096; margin-top: 8px;">
+        * ප්‍රමාදයකින් තොරව පැමිණීම සඳහා නියමිත වේලාවට අවම වශයෙන් විනාඩි 30කට පෙරවත් එම ස්ථානයට ළඟා වන්න.
+      </p>
+    </div>
+
+    <!-- Dress Code Section -->
+    <div class="card">
+      <h2>👔 සම්මුඛ පරීක්ෂණය සඳහා ඇඳුම් පැළඳුම් (Casual / Smart Casual Dress Code)</h2>
+      <p style="font-size: 0.92rem; color: #4a5568; margin-bottom: 12px;">
+        සම්මුඛ පරීක්ෂණය සඳහා පිළිවෙළකට සහ විනීතව සැරසී පැමිණීම අනිවාර්ය වේ. පිරිමි සහ කාන්තා දෙපාර්ශවය සඳහා උපදෙස්:
+      </p>
+      
+      <div class="dress-grid">
+        <div class="dress-col">
+          <h3>👨 පිරිමි (Male Dress Code)</h3>
+          <ul>
+            <li><strong>කමිසය (Shirt):</strong> සාමාන්‍ය විනීත කමිසයක් (Light color Long/Short sleeve Shirt) හෝ කොලර් සහිත පිළිවෙළකට ඇති T-shirt එකක් (Polo shirt).</li>
+            <li><strong>කලිසම (Trousers):</strong> දිග කලිසමක් (Formal / Casual Chino Trouser හෝ සාමාන්‍ය ඩෙනිම්/ජීන්ස් - ඉරුණු හෝ විලාසිතා සහිත නොවන).</li>
+            <li><strong>පාවහන් (Shoes):</strong> සපත්තු (Formal Shoes හෝ Casual / Sneaker Shoes) මේස් සහිතව. (සෙරෙප්පු පැළඳීමෙන් වළකින්න).</li>
+            <li><strong>පෙනුම (Grooming):</strong> පිළිවෙළකට කොණ්ඩය සකසා සහ රැවුල කපා (Clean Shaved / Well-groomed) තිබිය යුතුය. මුහුණ හා දෙකන් පැහැදිලිව පෙනිය යුතුය.</li>
+          </ul>
+        </div>
+
+        <div class="dress-col">
+          <h3>👩 කාන්තා (Female Dress Code)</h3>
+          <ul>
+            <li><strong>ඇඳුම (Attire):</strong> විනීත සාමාන්‍ය ඇඳුමක් (Smart Casual Blouse සමග කලිසම/සාය, සරල ගවුමක් හෝ සාරි/ඔසරිය).</li>
+            <li><strong>පාවහන් (Footwear):</strong> පැතලි හෝ පහසු සපත්තු/සැන්ඩල්ස් (Flat shoes / Closed shoes). අඩි උස (High heels) සපත්තු නොපැළඳීම වඩාත් සුදුසුය.</li>
+            <li><strong>පෙනුම (Grooming):</strong> සරල සහ විනීත පෙනුමක් තිබිය යුතුය. අනන්‍යතාවය තහවුරු කරගැනීමට හැකිවන පරිදි මුහුණ හා දෙකන් ආවරණය නොකර සිටිය යුතුය.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Drive Download Links Section -->
+    <div class="card">
+      <h2>📂 නිල ලේඛන බාගත කරගැනීමට (Google Drive Links)</h2>
+      <p style="font-size: 0.9rem; color: #4a5568; margin-bottom: 12px;">අදාළ PDF ලේඛන බාගත කර ගැනීමට හෝ පරිශීලනය කිරීමට පහත ලින්ක් මත ක්ලික් කරන්න:</p>
+      
+      <div class="download-grid">
+        <!-- LINK 1: SI All Candidates -->
+        <a href="https://drive.google.com/file/d/1WtxVom2E5DSsdVKocyR307QsUbtbkxC1/view?usp=drivesdk" target="_blank" class="download-btn">
+          <span>📄 සම්පූර්ණ නාම ලේඛනය (SI - All Candidates)</span>
+          <span class="badge">Open</span>
+        </a>
+
+        <!-- LINK 2: Medical Form -->
+        <a href="https://drive.google.com/file/d/18_lS-woNDX-MgPSUn5Y8viZQ_Z8KceYC/view?usp=drivesdk" target="_blank" class="download-btn">
+          <span>🩺 ඇමුණුම III - වෛද්‍ය පෝරමය (Medical Form)</span>
+          <span class="badge">Open</span>
+        </a>
+
+        <!-- LINK 3: Gazette 2497 -->
+        <a href="https://drive.google.com/file/d/10l7RIPAuJexvmRA1WpSp7xAKLC5F3fVI/view?usp=drivesdk" target="_blank" class="download-btn">
+          <span>📰 ගැසට් පත්‍රය (අංක 2,497)</span>
+          <span class="badge">Open</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Instructions / What to bring -->
+    <div class="card">
+      <h2>📋 සම්මුඛ පරීක්ෂණයට රැගෙන ආ යුතු අත්‍යවශ්‍ය දෑ</h2>
+      
+      <div class="step-box">
+        <div class="step-title">1. මූලික ලියකියවිලි (මුල් පිටපත් සහ ඡායා පිටපත්)</div>
+        <ul>
+          <li>උප්පැන්න සහතිකය (Original Birth Certificate)</li>
+          <li>ජාතික හැඳුනුම්පත (NIC) හෝ වලංගු විදේශ ගමන් බලපත්‍රය / රියදුරු බලපත්‍රය</li>
+          <li>අ.පො.ස. සාමාන්‍ය පෙළ (O/L) සහ උසස් පෙළ (A/L) සහතිකපත්</li>
+          <li>වෘත්තීය සහතිකපත් (NVQ / Diploma / Degree සහතික) සහ සේවා පළපුරුදු ලිපි (Service Letters)</li>
+          <li>මාර්ගගතව (Online) යොමු කළ අයදුම්පතෙහි මුද්‍රිත පිටපතක් (අත්සන සහිතව)</li>
+          <li>සුදු පසුබිමෙහි ලබාගත් පාස්පෝට් ප්‍රමාණයේ වර්ණ ඡායාරූප (Passport Size Photos)</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title">2. වෛද්‍ය පරීක්ෂණ පෝරමය (ඇමුණුම III) සහ වෛද්‍ය වාර්තා</div>
+        <ul>
+          <li>ඇමුණුම III පූර්ව සහභාගිත්ව ස්වයං ප්‍රකාශන පෝරමය (Pre-participation declaration) නිවැරදිව සම්පූර්ණ කර රැගෙන ඒම.</li>
+          <li><span class="highlight">දින 7ක් ඇතුළත ලබාගත්</span> පහත වෛද්‍ය වාර්තා රැගෙන ඒම අනිවාර්ය වේ:
+            <ol style="margin-top: 5px;">
+              <li>Fasting Blood Sugar (FBS)</li>
+              <li>Serum Cholesterol</li>
+              <li>12-Lead E.C.G වාර්තාව</li>
+            </ol>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <div class="step-title">3. දැනට රජයේ / සන්නද්ධ සේවයේ නියුතු අය සඳහා</div>
+        <ul>
+          <li>තෝරාගනු ලැබුවහොත් සේවයෙන් මුදාහල හැකි බවට ආයතන ප්‍රධානියාගේ අත්සන හා නිල මුද්‍රාව සහිත ලිපිය (ගැසට් ආකෘතිය අනුව).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ Section (නිතර අසන ප්‍රශ්න) -->
+    <div class="card">
+      <h2>❓ නිතර අසන ප්‍රශ්න (Frequently Asked Questions)</h2>
+      <p style="font-size: 0.9rem; color: #4a5568; margin-bottom: 15px;">කට්ටිය නිතරම අහන ගැටලු සඳහා පිළිතුරු පහතින් කියවන්න:</p>
+
+      <details>
+        <summary>වෛද්‍ය පරීක්ෂණ වාර්තා (Blood Tests / ECG) කොපමණ කාලයකට කලින් ලබාගත යුතුද?</summary>
+        <div class="faq-answer">
+          වෛද්‍ය පරීක්ෂණ දිනයට පෙර <strong>දින 07 ක් ඇතුළත</strong> ලබාගත් Fasting Blood Sugar, Serum Cholesterol සහ 12-Lead ECG වාර්තා පමණක් ඉදිරිපත් කළ යුතුය. ඊට වඩා පැරණි වාර්තා භාරගනු නොලැබේ.
+        </div>
+      </details>
+
+      <details>
+        <summary>සම්මුඛ පරීක්ෂණයට එද්දී මුල් පිටපත් (Originals) පමණක් ප්‍රමාණවත්ද?</summary>
+        <div class="faq-answer">
+          නැත. සියලුම අධ්‍යාපනික, වෘත්තීය සහ උප්පැන්න සහතිකවල <strong>මුල් පිටපත් (Originals) සමග ඒවායේ පැහැදිලි ඡායා පිටපත් (Photocopies)</strong> ද අනිවාර්යයෙන් රැගෙන ආ යුතුය.
+        </div>
+      </details>
+
+      <details>
+        <summary>මගේ නම ලැයිස්තුවේ තියෙන දිනය සහ Call Up අංකය හරියටම බලාගන්නේ කොහොමද?</summary>
+        <div class="faq-answer">
+          ඉහත ඇති <strong>"සම්පූර්ණ නාම ලේඛනය (SI - All Candidates)"</strong> ලින්ක් එක ක්ලික් කර PDF ගොනුව විවෘත කරන්න. එහි Search පහසුකම (Ctrl + F හෝ PDF Search) මගින් ඔබගේ NIC අංකය හෝ නම ගසා පහසුවෙන්ම ඔබගේ දිනය, වෙලාව සහ Call Up Number එක බලාගත හැක.
+        </div>
+      </details>
+
+      <details>
+        <summary>ඇඳුම් පැළඳුම් (Dress Code) මොන වගේ වෙන්න ඕනෙද?</summary>
+        <div class="faq-answer">
+          ඉහත "ඇඳුම් පැළඳුම්" කොටසේ දක්වා ඇති පරිදි පිරිමි පාර්ශවය සඳහා විනීත කමිසයක්/කොලර් ටීෂර්ට් සහ කලිසමක් ද, කාන්තා පාර්ශවය සඳහා විනීත බ්ලවුස් සහ කලිසමක්/සායක් හෝ සරල ගවුමක් ද පැළඳිය හැක. පාවහන් (Shoes) පැළඳීම සුදුසු අතර, සෙරෙප්පු පැළඳීමෙන් වළකින්න. මුහුණ හා දෙකන් ආවරණය නොකර සිටිය යුතුය.
+        </div>
+      </details>
+
+      <details>
+        <summary>සම්මුඛ පරීක්ෂණය පවත්වන ස්ථානයට යන්නේ කෙසේද?</summary>
+        <div class="faq-answer">
+          ඉහත ලබා දී ඇති <strong>"Google Maps මඟින් ස්ථානය විවෘත කරන්න"</strong> බොත්තම ක්ලික් කිරීමෙන් ඔබ සිටින ස්ථානයේ සිට නියමිත ස්ථානය දක්වා navigation පහසුවෙන්ම ලබාගත හැක.
+        </div>
+      </details>
+
+      <details>
+        <summary>ඇමුණුම III වෛද්‍ය පෝරමය සම්පූර්ණ කරන්නේ කෙසේද?</summary>
+        <div class="faq-answer">
+          එහි ඇති ප්‍රශ්න 1 සිට 19 දක්වා ඔබ විසින්ම කියවා බලා සත්‍ය තොරතුරු අනුව (ඔව් / නැත) ලකුණු කර, අවසානයේ නම, ජාතික හැඳුනුම්පත් අංකය සහ අත්සන යොදා වෛද්‍ය නිලධාරියා වෙත භාරදිය යුතුය.
+        </div>
+      </details>
+
+      <details>
+        <summary>දැනටමත් රජයේ හෝ හමුදා සේවයේ නියුතු අය මොනවාද ගේන්න ඕනේ?</summary>
+        <div class="faq-answer">
+          තනතුරට තෝරාගනු ලැබුවහොත් ඔබව සේවයෙන් මුදාහැරිය හැකි බවට ආයතන ප්‍රධානියා විසින් අත්සන් කර නිල මුද්‍රාව තබන ලද ලිපියක් (ගැසට් පත්‍රයේ අංක 17 ආකෘතිය අනුව) අනිවාර්යයෙන් ඉදිරිපත් කළ යුතුය.
+        </div>
+      </details>
+    </div>
+
+    <footer>
+      <p>© 2026 ශ්‍රී ලංකා පොලිස් සහායක සේවා බඳවා ගැනීම් තොරතුරු කවුළුව</p>
+    </footer>
+  </div>
+
+</body>
+</html>
